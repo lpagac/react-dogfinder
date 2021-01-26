@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import "./DogList.css";
 
 /** Renders dogs with their images and names
  * 
@@ -10,6 +11,7 @@ import {Link} from "react-router-dom";
  */
 
 function DogList({dogs}) {
+  console.log("DogList rendered");
   function renderURL(name) {
     return `/dogs/${name}`;
   }
@@ -17,13 +19,14 @@ function DogList({dogs}) {
     let dogsInfo = [];
     for (let dog of dogs) {
       dogsInfo.push(
-          <div className="DogList-dog">
-            <img src={dog.src} alt={dog.name} />
+          <div key={dog.name} className="DogList-dog">
+            <img className="DogList-image" src={dog.src} alt={dog.name} />
             <p className="DogList-name"><Link to={renderURL(dog.name)}>{dog.name}</Link></p>
             <p className="DogList-age">Age: {dog.age}</p>
           </div>
       );
     }
+    return dogsInfo;
   }
 
   return (

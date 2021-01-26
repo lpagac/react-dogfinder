@@ -15,8 +15,8 @@ function App({ dogs }) {
 
   return (
     <BrowserRouter>
+      <Nav names={names} />
       <Switch>
-        <Nav names={names} />
         <Route exact path="/dogs" >
           <DogList dogs={dogs} /> 
         </Route>
