@@ -10,6 +10,7 @@ import DogDetails from "./DogDetails";
 import Nav from "./Nav";
 
 function App({ dogs }) {
+  // use map
   const names = getNames(dogs);
   // const params = useParams();
 
@@ -20,7 +21,7 @@ function App({ dogs }) {
         <Route exact path="/dogs" >
           <DogList dogs={dogs} /> 
         </Route>
-        <Route path="/dogs/:name" >
+        <Route exact path="/dogs/:name" >
           <DogDetails dogs={dogs}/> 
         </Route>
         <Redirect to="/dogs" />

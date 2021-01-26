@@ -17,7 +17,7 @@ function DogList({dogs}) {
   }
   function renderDogs() {
     let dogsInfo = [];
-    for (let dog of dogs) {
+    for (const dog of dogs) {
       dogsInfo.push(
           <div key={dog.name} className="DogList-dog">
             <img className="DogList-image" src={dog.src} alt={dog.name} />

@@ -10,12 +10,14 @@ import "./DogDetails.css";
  * App -> DogDetails
  */
 
+// could have parent component to filter dogs and pass individual to DogDetail
 function DogDetails({ dogs }) {
   console.log("DogDetail rendered");
 
   const {name} = useParams();
   const dog = dogs.find( d => d.name === name );
 
+  // could use index as key
   return (
     <div className="DogDetails">
       <h3 className="DogDetails-name">{dog.name}</h3>
