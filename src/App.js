@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import './App.css';
 import whiskey from "./whiskey.jpg";
 import tubby from "./tubby.jpg";
@@ -7,20 +7,25 @@ import duke from "./duke.jpg";
 import { getNames } from "./helpers";
 import DogList from "./DogList";
 import DogDetails from "./DogDetails";
+import Nav from "./Nav";
 
 function App({ dogs }) {
   const names = getNames(dogs);
+  // const params = useParams();
+
   return (
-    <Switch>
-      <Nav names={names} />
-      <Route exact path="/dogs" >
-        <DogList dogs={dogs} /> 
-      </Route>
-      <Route path="/dogs/:name" >
-        <DogDetails /> 
-      </Route>
-      <Redirect to="/dogs" />
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Nav names={names} />
+        <Route exact path="/dogs" >
+          <DogList dogs={dogs} /> 
+        </Route>
+        <Route path="/dogs/:name" >
+          <DogDetails dogs={dogs}/> 
+        </Route>
+        <Redirect to="/dogs" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

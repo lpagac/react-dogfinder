@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 /** Renders dogs with their images and names
  * 
  * props - dogs (array like ([{name: '', age: 10, src: '', facts: []}, ...]))
@@ -30,3 +32,5 @@ function DogList({dogs}) {
     </div>
   )
 }
+
+export default DogList;
